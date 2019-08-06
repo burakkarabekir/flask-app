@@ -1,10 +1,13 @@
+from datetime import datetime
+from models import User, Post
 from flask import Flask, render_template, url_for, flash, redirect
-
+from flask_sqlalchemy import SQLAlchemy
+from . import app
 from forms import RegistrationForm, LoginForm
 
-app = Flask(__name__)
 
-app.config['SECRET_KEY'] = '5bae0a0a9e5c83ba168abdc34f5872cd'
+
+
 posts = [
 	{
 		'author': 'Corey Schafer',
@@ -23,7 +26,7 @@ posts = [
 
 @app.route('/')
 @app.route('/home')
-def hello_world():
+def home():
 	return render_template('home.html', posts=posts)
 
 
@@ -45,7 +48,7 @@ def register():
 def login():
 	form = LoginForm()
 	if form.validate_on_submit():
-		if form.email.data == 'admin@blog.com' and form.password.data == 'password':
+		if form.email.data == 'burakkarabekir@gmail.com' and form.password.data == '1':
 			flash('You have been logged in!', 'success')
 			return redirect(url_for('home'))
 		else:
