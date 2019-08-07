@@ -1,0 +1,11 @@
+from blog import db
+from flask_sqlalchemy import SQLAlchemy
+db.create_all()
+from blog.models import User, Post
+user_1 = User(username='Burak', email='aa@gmail.com',password='1')
+user_2 = User(username='ss', email='ss@gmail.com',password='0')
+db.session.add(user_1)
+db.session.add(user_2)
+db.session.commit() # if not run db.session.rollback()
+User.query.all()
+user = User.query.filter_by(username='Burak').first()

@@ -1,6 +1,8 @@
 <component name="ProjectDictionaryState">
   <dictionary name="burakk">
     <words>
+      <w>bcrypt</w>
+      <w>burakk</w>
       <w>sqlalchemy</w>
       <w>wtforms</w>
     </words>
